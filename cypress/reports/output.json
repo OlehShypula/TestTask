@@ -1,0 +1,207 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 5,
+    "pending": 0,
+    "failures": 1,
+    "start": "2021-08-19T06:28:54.339Z",
+    "end": "2021-08-19T06:29:07.439Z",
+    "duration": 12591,
+    "testsRegistered": 6,
+    "passPercent": 83.33333333333333,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "c31ebc60-8cfb-4e7f-ad5c-e9fb850e8aa2",
+      "title": "",
+      "fullFile": "cypress/integration/Tests.spec.js",
+      "file": "cypress/integration/Tests.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "5ea5980f-a9d5-475e-8531-0a32fea2b66e",
+          "title": "",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Test for basic attributes of the page",
+              "fullTitle": " Test for basic attributes of the page",
+              "timedOut": null,
+              "duration": 1203,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.url().should('eq', 'https://www.pecodesoftware.com/qa-portal/registerlogin/registerlogin.php');\ncy.get('center h1').should('contain', 'QA Portal Login');\ncy.get('[name=\"username\"]').should('have.attr', 'placeholder').and('eq', 'Username');\ncy.get('[name=\"password\"]').should('have.attr', 'placeholder').and('eq', 'Password');\ncy.get('.btn.btn-success').should('contain', 'Login');",
+              "err": {},
+              "uuid": "5133476c-6898-4eb3-8c2c-02fcefeeafb5",
+              "parentUUID": "5ea5980f-a9d5-475e-8531-0a32fea2b66e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "login using credentials",
+              "fullTitle": " login using credentials",
+              "timedOut": null,
+              "duration": 5931,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.login(username, password);\ncy.get('.form-group.has-error .help-block').should('not.contain', 'No account found with that username.').and('not.contain', 'Please enter username.').and('not.contain', 'Please enter your password.');\ncy.screenshot();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected '<span.help-block>' not to contain 'No account found with that username.'",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected '<span.help-block>' not to contain 'No account found with that username.'\n    at Context.eval (https://www.pecodesoftware.com/__cypress/tests?p=cypress/integration/Tests.spec.js:115:49)",
+                "diff": null
+              },
+              "uuid": "6089a64a-af30-4e1b-88e4-4c4dd5a41c54",
+              "parentUUID": "5ea5980f-a9d5-475e-8531-0a32fea2b66e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "if requirements fields are empty",
+              "fullTitle": " if requirements fields are empty",
+              "timedOut": null,
+              "duration": 1093,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.loginWithoutCreds(username, password);\ncy.url().should('eq', 'https://www.pecodesoftware.com/qa-portal/registerlogin/registerlogin.php');\ncy.get('center h1').should('contain', 'QA Portal Login');\ncy.get('[name=\"username\"]').should('not.have.value', username);\ncy.get('[name=\"password\"]').should('not.have.value', password);\ncy.contains('.help-block', 'Please enter username.').should('contain', 'Please enter username.');\ncy.contains('.help-block', 'Please enter your password.').should('contain', 'Please enter your password.');\ncy.get('.btn.btn-success').should('contain', 'Login');",
+              "err": {},
+              "uuid": "2da928dd-8bb8-42f6-938f-312896e8c10f",
+              "parentUUID": "5ea5980f-a9d5-475e-8531-0a32fea2b66e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "if password field is empty",
+              "fullTitle": " if password field is empty",
+              "timedOut": null,
+              "duration": 1056,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.loginWithoutPassword(username, password);\ncy.url().should('eq', 'https://www.pecodesoftware.com/qa-portal/registerlogin/registerlogin.php');\ncy.get('center h1').should('contain', 'QA Portal Login');\ncy.get('[name=\"username\"]').should('have.value', username);\ncy.get('[name=\"password\"]').should('not.have.value', password);\ncy.contains('.help-block', 'Please enter your password.').should('contain', 'Please enter your password.');\ncy.get('.btn.btn-success').should('contain', 'Login');",
+              "err": {},
+              "uuid": "b6a02664-3adb-48eb-a092-f3043d623e31",
+              "parentUUID": "5ea5980f-a9d5-475e-8531-0a32fea2b66e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "if username field is empty",
+              "fullTitle": " if username field is empty",
+              "timedOut": null,
+              "duration": 1692,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.loginWithoutUsername(username, password);\ncy.url().should('eq', 'https://www.pecodesoftware.com/qa-portal/registerlogin/registerlogin.php');\ncy.get('center h1').should('contain', 'QA Portal Login');\ncy.get('[name=\"username\"]').should('not.have.value', username);\ncy.get('[name=\"password\"]').should('not.have.value', password);\ncy.contains('.help-block', 'Please enter username.').should('contain', 'Please enter username.');\ncy.get('.btn.btn-success').should('contain', 'Login');",
+              "err": {},
+              "uuid": "a3d6bdeb-a154-46bd-9eb0-7f43bd540ee3",
+              "parentUUID": "5ea5980f-a9d5-475e-8531-0a32fea2b66e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "login with cyrillic credentials",
+              "fullTitle": " login with cyrillic credentials",
+              "timedOut": null,
+              "duration": 1616,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.login(usernameCyrillic, passwordCyrillic);\ncy.url().should('eq', 'https://www.pecodesoftware.com/qa-portal/registerlogin/registerlogin.php');\ncy.get('center h1').should('contain', 'QA Portal Login');\ncy.get('[name=\"username\"]').should('have.value', usernameCyrillic);\ncy.get('[name=\"password\"]').should('not.have.value', passwordCyrillic);\ncy.get('body').should('contain', 'Oops! Something went wrong. Please try again later.');\ncy.get('.btn.btn-success').should('contain', 'Login');",
+              "err": {},
+              "uuid": "f6d99b33-3f41-4eb6-8bbf-77eaae508c7b",
+              "parentUUID": "5ea5980f-a9d5-475e-8531-0a32fea2b66e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "5133476c-6898-4eb3-8c2c-02fcefeeafb5",
+            "2da928dd-8bb8-42f6-938f-312896e8c10f",
+            "b6a02664-3adb-48eb-a092-f3043d623e31",
+            "a3d6bdeb-a154-46bd-9eb0-7f43bd540ee3",
+            "f6d99b33-3f41-4eb6-8bbf-77eaae508c7b"
+          ],
+          "failures": [
+            "6089a64a-af30-4e1b-88e4-4c4dd5a41c54"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 12591,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.2"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "reportFilename": "report",
+        "overwrite": true,
+        "html": true,
+        "json": true,
+        "charts": true
+      },
+      "version": "5.2.0"
+    }
+  }
+}

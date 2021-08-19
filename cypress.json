@@ -1,0 +1,20 @@
+{
+  "reporter": "mochawesome",
+  "reporterOptions": {
+    "reportDir": "cypress/reports",
+    "reportFilename": "report",
+    "overwrite": true,
+    "html": true,
+    "json": true,
+    "charts": true
+  },
+
+  "env":{
+    "username": "testUsername",
+    "password": "testPassword",
+    "usernameCyrillic": "тестЮзернейм",
+    "passwordCyrillic": "тестПароль"
+  },
+  
+  "baseUrl": "https://www.pecodesoftware.com/qa-portal/registerlogin"
+}
